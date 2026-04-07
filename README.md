@@ -52,39 +52,39 @@ The framework follows industry best practices like \*\*Page Object Model (POM)\*
 
 src/main/java/
 
-&#x20;  base/        → Base classes
+  base/        → Base classes
 
-&#x20;  config/      → ConfigReader
+  config/      → ConfigReader
 
-&#x20;  factory/     → DriverFactory
+  factory/     → DriverFactory
 
-&#x20;  pages/       → Page Object classes
+  pages/       → Page Object classes
 
-&#x20;  utils/       → Utility classes
+  utils/       → Utility classes
 
 
 
 src/main/resources/
 
-&#x20;  config/      → Properties files (qa, dev, etc.)
+  config/      → Properties files (qa, dev, etc.)
 
-&#x20;  log4j2.xml   → Logging configuration
+  log4j2.xml   → Logging configuration
 
 
 
 src/test/java/
 
-&#x20;  base/        → BaseTest
+  base/        → BaseTest
 
-&#x20;  tests/       → Test classes
+  tests/       → Test classes
 
 
 
 testng-suites/
 
-&#x20;  testng-smoke.xml
+  testng-smoke.xml
 
-&#x20;  testng-smoke-parallel-crossbrowser.xml
+  testng-smoke-parallel-crossbrowser.xml
 
 ```
 
