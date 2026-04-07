@@ -3,11 +3,12 @@ name: Selenium Automation CI
 on:
 push:
 branches: [ "main" ]
+pull_request:
+branches: [ "main" ]
 
 jobs:
-selenium-tests:
+test:
 runs-on: ubuntu-latest
-
 
 steps:
   - name: Checkout Code
@@ -16,23 +17,26 @@ steps:
   - name: Set up Java
     uses: actions/setup-java@v4
     with:
-      distribution: temurin
-      java-version: 17
+      distribution: 'temurin'
+      java-version: '17'
 
-  - name: Setup Chrome
-    uses: browser-actions/setup-chrome@v1
+  - name: Cache Maven Dependencies
+    uses: actions/cache@v4
+    with:
+      path: ~/.m2
+      key: maven-${{ hashFiles('**/pom.xml') }}
+      restore-keys: maven-
 
   - name: Install Dependencies
     run: mvn clean install -DskipTests
 
-  - name: Run Tests (Headless Mode)
+  - name: Run Selenium Tests (Headless)
     run: mvn test -Denv=qa -Dbrowser.headless=true
 
-  - name: Upload Reports
+  - name: Upload Test Results
     if: always()
     uses: actions/upload-artifact@v4
     with:
-      name: test-report
-      path: |
-        test-output/
-        target/surefire-reports/
+      name: test-output
+      path: target/
+
