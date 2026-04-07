@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" name="SeleniumFrameworkLogs">
+
+
+	 <Properties>
+        <Property name="basePath">./logs</Property>
+    </Properties>
+
+    <!-- ============================= -->
+    <!-- Appenders (WHERE logs go) -->
+    <!-- ============================= -->
+
+    <Appenders>
+
+        <!-- ===== Console Appender ===== -->
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss}] [%level] [%c{1}] - %msg%n"/>
+        </Console>
+
+        <!-- ===== Rolling File Appender ===== -->
+        <RollingFile
+                name="FileAppender"
+                fileName="${basePath}/automation.log"
+                filePattern="${basePath}/automation-%d{yyyy-MM-dd}-%i.log.gz">
+
+            <PatternLayout>
+                <Pattern>[%d{yyyy-MM-dd HH:mm:ss}] [%level] [%c{1}] - %msg%n</Pattern>
+            </PatternLayout>
+
+            <Policies>
+                <!-- Roll log every day -->
+                <TimeBasedTriggeringPolicy />
+                <!-- Roll log when file reaches 10MB -->
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+
+            <!-- Keep max 10 old log files -->
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+    </Appenders>
+
+    <!-- ============================= -->
+    <!-- Loggers (WHAT to log) -->
+    <!-- ============================= -->
+
+    <Loggers>
+
+        <!-- Silence noisy third-party libraries -->
+        <Logger name="org.openqa.selenium" level="WARN" additivity="false"/>
+        <Logger name="org.apache" level="WARN" additivity="false"/>
+        <Logger name="freemarker.cache" level="WARN" additivity="false"/>
+
+        <!-- Root Logger -->
+        <Root level="info"> <!-- here we can specify the log level like - All<Trace<Debug<Info<Warn<Error<fatal<off-->
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="FileAppender"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>

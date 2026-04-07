@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Smoke Suite">
+  <test thread-count="5" name="Test">
+  
+  	<parameter name="browser" value="firefox"/>
+  	
+    <classes>
+      <class name="com.koustav.sdetqa.opencart.tests.UserRegistrationTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

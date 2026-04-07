@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="
+           http://maven.apache.org/POM/4.0.0
+           http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.sdetqa.koustav.opencart</groupId>
+    <artifactId>opencart-hybrid-automation-framework</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>OpenCart Hybrid Automation Framework</name>
+    <description>
+        Hybrid Selenium Java automation framework for OpenCart application
+    </description>
+    
+    <!-- ================= JAVA VERSION ================= -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+    
+    
+
+    <!-- ================= DEPENDENCIES ================= -->
+
+	<dependencies>
+
+	<!-- ================== SELENIUM ================== -->
+    <!-- Selenium Java:
+         Used for browser automation (WebDriver, Chrome, Firefox, Edge),
+         handling web elements, waits, alerts, frames, windows, etc. -->
+  <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-java</artifactId>
+	    <version>4.20.0</version>
+	</dependency>
+
+
+	<!-- ================== DATA DRIVEN TESTING ================== -->
+    <!-- Apache POI:
+         Used to read/write Excel files (.xls) for data-driven testing. -->
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		    <version>5.2.5</version>
+		</dependency>
+		
+		<!-- Apache POI OOXML:
+         Required for handling modern Excel files (.xlsx). -->
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>5.2.5</version>
+		</dependency>
+
+	<!-- ================== LOGGING ================== -->
+	<!-- Log4j Core:
+         Actual logging implementation used to write logs
+         to console and log files. -->
+	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+	<!-- https://logging.apache.org/log4j/2.x/maven-artifacts.html -->
+	
+	<dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-core</artifactId>
+	    <version>2.23.1</version>
+	  </dependency>
+
+	<!-- Log4j API:
+         Provides logging APIs used to log execution steps,
+         errors, and debugging information. -->
+	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+	<dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-api</artifactId>
+	    <version>2.23.1</version>
+	 </dependency>
+
+	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+	<!--<dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-slf4j-impl</artifactId>
+	    <version>2.23.1</version>
+	</dependency>-->
+
+
+	<!-- ================== REPORTING ================== -->
+    <!-- Extent Reports:
+         Used to generate rich HTML test execution reports
+         with screenshots and detailed step logs. -->	
+	<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+	<dependency>
+	    <groupId>com.aventstack</groupId>
+	    <artifactId>extentreports</artifactId>
+	    <version>5.1.1</version>
+	</dependency>
+	
+	
+	<!-- ================== TEST EXECUTION ================== -->
+    <!-- TestNG:
+         Test execution framework used for @Test annotations,
+         parallel execution, grouping, assertions, and listeners. -->
+	<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+	<dependency>
+	    <groupId>org.testng</groupId>
+	    <artifactId>testng</artifactId>
+	    <version>7.9.0</version>
+	    <scope>test</scope>
+	</dependency>
+	 
+	 
+	 <!-- ================== FILE & STRING UTILITIES ================== -->
+    <!-- Commons IO:
+         Provides utility methods for file handling,
+         screenshot saving, file copy, delete operations, etc. -->	  
+	<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+	<dependency>
+	    <groupId>commons-io</groupId>
+	    <artifactId>commons-io</artifactId>
+	    <version>2.15.1</version>
+	</dependency>
+	
+	<!-- Commons Lang:
+         Provides utility methods for String handling,
+         random data generation, null checks, and validations. -->
+	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-lang3</artifactId>
+	    <version>3.14.0</version>
+	</dependency>
+	
+	
+	
+	<!-- ================== EMAIL NOTIFICATIONS ================== -->
+    <!-- Commons Email:
+         Used to send automation execution reports
+         via email after test execution (CI/CD integration). -->
+	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email -->
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-email</artifactId>
+	    <version>1.6.0</version>
+	</dependency>
+	
+	
+	
+	<!-- ================== generate data. ================== -->
+	<!-- Faker for runtime test data generation -->
+	<!-- Java Faker for test data generation -->
+	<dependency>
+	    <groupId>com.github.javafaker</groupId>
+	    <artifactId>javafaker</artifactId>
+	    <version>1.0.2</version>
+	</dependency>
+
+
+
+
+</dependencies>
+
+
+
+</project>

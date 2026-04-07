@@ -1,0 +1,19 @@
+# Build & logs
+target/
+bin/
+logs/
+*.log
+*.log.gz
+
+# TestNG Reports
+test-output/
+
+# Compiled files
+*.class
+
+# IDE files
+.settings/
+.project
+.classpath
+.idea/
+*.iml

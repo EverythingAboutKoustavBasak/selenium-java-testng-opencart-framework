@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Smoke Parallel Cross-Browser Suite" thread-count="3" parallel = "tests">
+
+  <test name="Smoke_UserRegistration_Chrome_Parallel_QA">  
+  	<parameter name="browser" value="chrome"/>  	
+    <classes>
+      <class name="com.koustav.sdetqa.opencart.tests.UserRegistrationTest"/>
+    </classes>
+  </test>
+   
+  <test name="Smoke_UserRegistration_Firefox_Parallel_QA">  
+  	<parameter name="browser" value="firefox"/>  	
+    <classes>
+      <class name="com.koustav.sdetqa.opencart.tests.UserRegistrationTest"/>
+    </classes>
+  </test>
+   
+</suite>
