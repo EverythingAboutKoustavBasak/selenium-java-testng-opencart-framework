@@ -3,32 +3,32 @@ name: Selenium Automation CI
 on:
 push:
 branches: [ "main" ]
-pull_request:
-branches: [ "main" ]
 
 jobs:
 selenium-tests:
 runs-on: ubuntu-latest
 
-```
-steps:
 
+steps:
   - name: Checkout Code
     uses: actions/checkout@v4
 
   - name: Set up Java
     uses: actions/setup-java@v4
     with:
-      distribution: 'temurin'
-      java-version: '17'
+      distribution: temurin
+      java-version: 17
 
-  - name: Install Maven Dependencies
+  - name: Setup Chrome
+    uses: browser-actions/setup-chrome@v1
+
+  - name: Install Dependencies
     run: mvn clean install -DskipTests
 
-  - name: Run Selenium Tests (Headless)
+  - name: Run Tests (Headless Mode)
     run: mvn test -Denv=qa -Dbrowser.headless=true
 
-  - name: Upload Test Reports
+  - name: Upload Reports
     if: always()
     uses: actions/upload-artifact@v4
     with:
@@ -36,4 +36,3 @@ steps:
       path: |
         test-output/
         target/surefire-reports/
-```
