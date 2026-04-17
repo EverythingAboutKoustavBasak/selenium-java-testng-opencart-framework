@@ -276,5 +276,82 @@ Logs are generated during execution for better debugging and traceability.
 
 \* API + UI combined framework
 
+**- And we try to follow this structure - **
+ui-automation-framework/
+│
+├── src/
+│   ├── main/
+│   │   ├── java/com/yourcompany/ui/
+│   │   │
+│   │   │   ├── base/
+│   │   │   │     └── BasePage.java
+│   │   │
+│   │   │   ├── driver/                    ⭐ Thread-safe driver
+│   │   │   │     ├── DriverFactory.java
+│   │   │   │     └── DriverManager.java   (ThreadLocal)
+│   │   │
+│   │   │   ├── pages/                     ⭐ POM
+│   │   │   │     ├── LoginPage.java
+│   │   │   │     ├── HomePage.java
+│   │   │   │     └── RegisterPage.java
+│   │   │
+│   │   │   ├── services/                  ⭐ Business layer
+│   │   │   │     ├── LoginService.java
+│   │   │   │     └── RegistrationService.java
+│   │   │
+│   │   │   ├── wrappers/                  ⭐ Stability layer
+│   │   │   │     ├── ElementActions.java
+│   │   │   │     └── WaitUtils.java
+│   │   │
+│   │   │   ├── utils/
+│   │   │   │     ├── ConfigReader.java
+│   │   │   │     ├── FakerUtils.java
+│   │   │   │     └── ScreenshotUtils.java
+│   │   │
+│   │   │   ├── constants/
+│   │   │   │     └── FrameworkConstants.java
+│   │   │
+│   │   │   ├── listeners/
+│   │   │   │     └── TestListener.java
+│   │   │
+│   │   │   ├── reports/
+│   │   │   │     └── ExtentManager.java
+│   │   │
+│   │   │   └── exceptions/
+│   │   │         └── FrameworkException.java
+│   │
+│   │   └── resources/
+│   │         ├── config/
+│   │         │     ├── config.properties
+│   │         │     ├── qa.properties
+│   │         │     └── prod.properties
+│   │         │
+│   │         └── testdata/
+│   │               └── testdata.json
+│
+│   ├── test/
+│   │   ├── java/com/yourcompany/tests/
+│   │   │
+│   │   │   ├── base/
+│   │   │   │     └── BaseTest.java
+│   │   │   │
+│   │   │   ├── ui/
+│   │   │   │     ├── LoginTest.java
+│   │   │   │     └── RegistrationTest.java
+│   │   │
+│   │   └── resources/
+│   │         └── testng/
+│   │               ├── testng.xml
+│   │               └── regression.xml
+│
+├── logs/
+├── reports/
+├── screenshots/
+├── test-output/
+│
+├── pom.xml
+├── Jenkinsfile
+└── README.md
+
 
 
