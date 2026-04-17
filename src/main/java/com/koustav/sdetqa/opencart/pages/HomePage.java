@@ -35,5 +35,12 @@ public class HomePage extends BasePage {
 	    doClick(register);
 	    return new RegisterPage(driver);
 	}
+	
+	
+	  public LoginPage goToLoginPage() {
+	        doClick(myAccount);
+	        doClick(login);
+	        return new LoginPage(driver);
+	    }
 
 }
