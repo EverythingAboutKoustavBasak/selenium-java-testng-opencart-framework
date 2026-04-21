@@ -63,10 +63,22 @@ public class BasePage {
 
     /* ========================= BASIC ACTIONS ========================= */
 
+//    protected void doClick(By locator) {
+//        logger.info("Clicking on element: {}", locator);
+//        waitForElementClickable(locator);
+//        driver.findElement(locator).click();
+//    }
+    
+    //Action methods always have try catch block so that in log any one can easily under stand the step which is not run
     protected void doClick(By locator) {
-        logger.info("Clicking on element: {}", locator);
-        waitForElementClickable(locator);
-        driver.findElement(locator).click();
+        try {
+            logger.info("Clicking on element: {}", locator);
+            waitForElementClickable(locator);
+            driver.findElement(locator).click();
+        } catch (Exception e) {
+            logger.error("Failed to click on element: {}", locator, e);
+            throw e;   // very important
+        }
     }
 
     protected void doSendKeys(By locator, String value) {
