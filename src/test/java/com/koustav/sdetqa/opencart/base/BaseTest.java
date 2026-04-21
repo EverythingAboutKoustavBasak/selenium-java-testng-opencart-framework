@@ -49,15 +49,19 @@
 
 package com.koustav.sdetqa.opencart.base;
 
-import com.koustav.sdetqa.opencart.config.ConfigReader;
-import com.koustav.sdetqa.opencart.factory.DriverFactory;
-import com.koustav.sdetqa.opencart.pages.HomePage;
+import java.lang.reflect.Method;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
-import java.time.Duration;
+import com.koustav.sdetqa.opencart.config.ConfigReader;
+import com.koustav.sdetqa.opencart.factory.DriverFactory;
+import com.koustav.sdetqa.opencart.pages.HomePage;
 
 public class BaseTest {
 
@@ -69,7 +73,7 @@ public class BaseTest {
 
     @Parameters("browser")
     @BeforeMethod(alwaysRun = true)
-    public void setUp(@Optional("") String xmlBrowser) {
+    public void setUp(@Optional("") String xmlBrowser, Method method) { //Method is used for populating the test name in log fine
 
         String browserName = resolveBrowser(xmlBrowser);
 
@@ -79,6 +83,7 @@ public class BaseTest {
         logger.info("Environment: {}", System.getProperty("env", "qa"));
         logger.info("Browser selected: {}", browserName);
         logger.info("App URL: {}", ConfigReader.get("app.url"));
+        logger.info("Test Name: {}", method.getName());
 
         // 1️⃣ Create driver (DriverFactory should handle headless internally)
         driver = DriverFactory.initDriver(browserName);
