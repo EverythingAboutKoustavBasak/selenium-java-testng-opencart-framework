@@ -1,4 +1,4 @@
-\# Selenium Java TestNG Automation Framework (OpenCart - "https://tutorialsninja.com/demo/index.php?")
+Selenium Java TestNG Automation Framework (OpenCart - "https://tutorialsninja.com/demo/index.php?")
 
 
 
