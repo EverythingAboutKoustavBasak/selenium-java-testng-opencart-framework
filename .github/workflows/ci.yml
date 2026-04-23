@@ -25,13 +25,13 @@ steps:
     key: maven-${{ hashFiles('**/pom.xml') }}
     restore-keys: maven-
  - name: Install Dependencies
-    run: mvn clean install -DskipTests
+   run: mvn clean install -DskipTests
  - name: Run Selenium Tests (Headless)
-    run: mvn test -Denv=qa -Dbrowser.headless=true
+   run: mvn test -Denv=qa -Dbrowser.headless=true
  - name: Upload Test Results
-    if: always()
-    uses: actions/upload-artifact@v4
-    with:
+   if: always()
+   uses: actions/upload-artifact@v4
+   with:
      name: test-output
      path: target/
 
